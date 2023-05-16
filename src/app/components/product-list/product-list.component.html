@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>Listado de Productos</h2>
+
+  <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary"
+    (click)="openPopup()">Agregar</button>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="product">
+        <ul class="list-group">
+          <li *ngFor="let product of productList" class="list-group-item justify-content-between align-items-center">
+            <p><strong>Nombre:</strong> {{ product.name }}</p>
+            <p><strong>Material:</strong> {{ product.material }}</p>
+            <p><strong>Tipo:</strong> {{ product.type }}</p>
+            <p><strong>Precio:</strong> {{ product.price }}</p>
+            <div>
+              <button type="button" class="btn btn-primary" (click)="openPopupDetail(product)">Detalle</button>
+              <button type="button" class="btn btn-primary" (click)="openPopupEdit(product)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="openPopupConfirm(product)">Eliminar</button>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleDetail}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <p><strong>Id:</strong> {{ productSelect.id }}</p>
+        <p><strong>Nombre:</strong> {{ productSelect.name }}</p>
+        <p><strong>Material:</strong> {{ productSelect.material }}</p>
+        <p><strong>Tipo:</strong> {{ productSelect.type }}</p>
+        <p><strong>Precio:</strong> {{ productSelect.price }}</p>
+        <p><strong>Otro:</strong> {{ productSelect.other }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopupDetail()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <app-form-product></app-form-product>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleConfirm}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body">
+        <h1>Esta seguro de eliminar este producto si da "Si" no puede recuperarse el producto?</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="deletePoduct()">
+          Si
+        </button>
+        <button type="button" class="btn btn-primary" (click)="closePopupConfirm()">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
