@@ -20,7 +20,6 @@
             </div>
           </li>
         </ul>
-
       </div>
     </div>
   </div>
@@ -29,7 +28,6 @@
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleDetail}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-body">
         <p><strong>Id:</strong> {{ productSelect.id }}</p>
         <p><strong>Nombre:</strong> {{ productSelect.name }}</p>
@@ -47,10 +45,9 @@
   </div>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':optenerEstado()}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-body">
         <app-form-product></app-form-product>
       </div>
@@ -66,7 +63,6 @@
 <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleConfirm}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-body">
         <h1>Esta seguro de eliminar este producto si da "Si" no puede recuperarse el producto?</h1>
       </div>

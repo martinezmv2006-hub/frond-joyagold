@@ -11,11 +11,10 @@ import { SwitchService } from 'src/app/services/switch.service';
 export class ProductListComponent {
 
   productList: Product[] = new Array;
-  modalSwitch: boolean = false;
-  displayStyle = "none";
   displayStyleConfirm = "none";
   displayStyleDetail = "none";
   productSelect: Product = new Product;
+  productUpdate: Product = new Product;
 
   constructor(private productService: ProductService, private modalS: SwitchService) {
     console.log("entra:");
@@ -25,7 +24,11 @@ export class ProductListComponent {
   }
 
   ngOnInit() {
-    this.modalS.$modal.subscribe((valor) => { this.modalSwitch = valor })
+    this.modalS.$productUpdate.subscribe((valor) => { this.productUpdate = valor })
+  }
+
+  optenerEstado(): string{
+    return this.modalS.obtenerEstado();
   }
 
   openPopupConfirm(product: Product) {
@@ -48,19 +51,16 @@ export class ProductListComponent {
 
   openPopup() {
     this.modalS.$product.emit(new Product);
-    this.displayStyle = "block";
-    console.log("displayStyle: " + this.displayStyle);
+    this.modalS.cambiarEstado("block");
   }
 
   openPopupEdit(product: Product) {
-    this.displayStyle = "block";
-    console.log("displayStyle: " + this.displayStyle);
-    console.log("product: " + product.id + " name" + product.name + " material" + product.material + " other" + product.other + " price" + product.price + " type" + product.type);
+    this.modalS.cambiarEstado("block");
     this.modalS.$product.emit(product);
   }
 
   closePopup() {
-    this.displayStyle = "none";
+    this.modalS.cambiarEstado("none");
   }
 
   deletePoduct() {

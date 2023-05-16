@@ -15,9 +15,7 @@ export class FormProductComponent {
 
   displayStyle = this.modalS.$displayStyle;
 
-  constructor(private productService: ProductService, private modalS: SwitchService) { 
-    console.log("productcont: "+this.product.id+" name"+this.product.name+" material"+this.product.material+" other"+this.product.other+" price"+this.product.price+" type"+this.product.type);
-  }
+  constructor(private productService: ProductService, private modalS: SwitchService) {  }
 
   ngOnInit(){
     this.modalS.$product.subscribe((valor)=> {this.product = valor})
@@ -27,6 +25,7 @@ export class FormProductComponent {
     console.log("onSaveProduct: "+JSON.stringify(this.product));
     this.productResp = this.productService.saveProduct(this.product);
     console.log("ProductResp: "+JSON.stringify(this.productResp));
+    this.modalS.cambiarEstado("none");
   }
 
 }

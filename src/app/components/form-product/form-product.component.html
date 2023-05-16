@@ -1,30 +1,29 @@
+<form action="" (ngSubmit)="onSaveProduct()">
+    <h2>Producto</h2>
+    <div>
+        <label for="">Id:</label>
+        <label>{{product.id}}</label>
+    </div>
+    <div>
+        <label for="">Nombre</label>
+        <input type="text" name="nameReferencia" [(ngModel)]="product.name" [disabled]="product.id > 0">
+    </div>
+    <div>
+        <label for="">Material</label>
+        <input type="text" name="materialReferencia" [(ngModel)]="product.material" [disabled]="product.id > 0">
+    </div>
+    <div>
+        <label for="">Tipo</label>
+        <input type="text" name="typeReferencia" [(ngModel)]="product.type">
+    </div>
+    <div>
+        <label for="">Precio</label>
+        <input type="number" name="priceReferencia" [(ngModel)]="product.price">
+    </div>
+    <div>
+        <label for="">Otros</label>
+        <input type="text" name="otherReferencia" [(ngModel)]="product.other" [disabled]="product.id > 0">
+    </div>
 
-        <form action="" (ngSubmit)="onSaveProduct()">
-            <h2>Producto</h2>
-            <div>
-                <label for="">Id:</label>
-                <label >{{product.id}}</label>
-            </div>
-            <div>
-                <label for="">Nombre</label>
-                <input type="text" name="nameReferencia" [(ngModel)]="product.name" [disabled]="product.id > 0">
-            </div>
-            <div>
-                <label for="">Material</label>
-                <input type="text" name="materialReferencia" [(ngModel)]="product.material" [disabled]="product.id > 0">
-            </div>
-            <div>
-                <label for="">Tipo</label>
-                <input type="text" name="typeReferencia" [(ngModel)]="product.type">
-            </div>
-            <div>
-                <label for="">Precio</label>
-                <input type="number" name="priceReferencia" [(ngModel)]="product.price">
-            </div>
-            <div>
-                <label for="">Otros</label>
-                <input type="text" name="otherReferencia" [(ngModel)]="product.other" [disabled]="product.id > 0">
-            </div>
-
-            <input type="submit" value="Guardar" >
-        </form>
+    <input type="submit" value="Guardar">
+</form>
